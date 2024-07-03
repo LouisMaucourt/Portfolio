@@ -1,33 +1,131 @@
+.border-color {
+    border-color: var(--s-color);
+    border-width: inherit;
+}
+.color-first{
+    background-color: var(--f-color);
+    color: var(--s-color)
+}
+.color-second {
+    background-color: var(--s-color);
+    color: var(--f-color);
+}
+.shadow-color {
+box-shadow: var(--s-color) 0px 7px 29px 0px;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* globals.css */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+    --f-color: #F4ECE8;
+    --s-color: #141414;
+    --border-color: #141414;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+    background-color: var(--f-color);
+    color: var(--s-color);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+
+
+
+.text-animation {
+    animation: fade 4s linear both;
+    animation-timeline: view();
+    animation-range: entry-crossing 300% cover 200%;
+    font-size: clamp(1rem, 5vw, 40rem);
+    rotate: -5deg;
+    width: 200%;
+    overflow-x: hidden;
+}
+@keyframes fade {
+    from{
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-100vh);
+    }
+
+}
+@keyframes slide-in-from-right {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out-to-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* styles/globals.css ou un autre fichier CSS global */
+.scroll-container {
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}.image-container {
+    display: inline-block;
+}
+.btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 30px;
+    border: 1px solid var(--s-color);
+    overflow: hidden;
+    color: inherit;
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+    color: var(--f-color);
+}
+
+.btn span {
+    position: relative;
+    z-index: 1;
+}
+
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    
+    background-color: var(--s-color);
+    transition: all 0.4s ease-in-out;
+}
+
+.btn:hover::after {
+    width: 35rem;
+    height: 35rem;
+    
 }
