@@ -1,15 +1,26 @@
 .border-color {
     border-color: var(--s-color);
-    border-width: inherit;
+    border-width: 0px;
 }
 .color-first{
     background-color: var(--f-color);
-    color: var(--s-color)
+    color: var(--s-color);
 }
 .color-second {
     background-color: var(--s-color);
-    color: var(--f-color);
+    color: var(--f-color) !important;
 }
+.color-second-opacity {
+    background-color: var(--s-color);
+    opacity: 0.2;
+}
+.svg-color_s{
+    fill: var(--s-color)
+}
+.svg-color_f {
+    fill: var(--f-color)
+}
+
 .shadow-color {
 box-shadow: var(--s-color) 0px 7px 29px 0px;
 }
@@ -19,30 +30,81 @@ box-shadow: var(--s-color) 0px 7px 29px 0px;
 
 /* globals.css */
 
+html {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+h1{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+h2{
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.flower{
+    font-family: var(--font-flower);
+    letter-spacing: 10rem;
+}
+.comic {
+    font-family: var(--font-comic);
+}
+.hitman {
+    font-family: var(--font-hitman);
+}
+.grotesk {
+    font-family: var(--font-grotesk);
+}
 :root {
     --f-color: #F4ECE8;
     --s-color: #141414;
-    --border-color: #141414;
+    --font-hitman: 'hitman', sans-serif;
+    --font-flower: 'flower', sans-serif;
+    --font-comic: 'Comic', sans-serif;
+    --font-grotesk: 'grotesk', sans-serif;
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--s-color) var(--f-color);
+}
+*::-webkit-scrollbar {
+    width:100px;
 }
 
-body {
+*::-webkit-scrollbar-track {
+    background: var(--f-color);
 
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--s-color);
+    border: 3px solid var(--f-color);
+}
+.page-transition {
+    opacity: 0;
+    background: var(--f-color);
+    transform: translateY(40px);
+    filter: blur(12px);
+}
+body {
     background-color: var(--f-color);
     color: var(--s-color);
+    font-family: var(--font-grotesk);
+
+    transition: opacity, background, transform, filter;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
 }
-
-
-
-
-
 .text-animation {
-    animation: fade 4s linear both;
+    animation: fade 2s linear both;
     animation-timeline: view();
-    animation-range: entry-crossing 300% cover 200%;
-    font-size: clamp(1rem, 5vw, 40rem);
-    rotate: -5deg;
-    width: 200%;
+    animation-range: entry-crossing 200% cover 200%;
+    font-size: clamp(1rem, 4vw, 25rem);
+    rotate: -4deg;
+    width: 150%;
     overflow-x: hidden;
+    padding-left: 5%;
 }
 @keyframes fade {
     from{
@@ -53,16 +115,20 @@ body {
     }
 
 }
-@keyframes slide-in-from-right {
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
+textarea, input{
+    background-color: transparent;
+    border: 1px solid var(--s-color);
+    padding: 5px;
 }
-
+input::placeholder, textarea::placeholder{
+    color: var(--s-color);
+        opacity: 0.5;
+    }
+input:focus-visible,
+textarea::placeholder {
+    color: var(--s-color);
+    opacity: 0.5;
+}
 @keyframes slide-out-to-left {
     from {
         transform: translateX(0);
@@ -72,20 +138,7 @@ body {
         transform: translateX(-100%);
     }
 }
-
-/* styles/globals.css ou un autre fichier CSS global */
-.scroll-container {
-    -webkit-overflow-scrolling: touch;
-}
-
-.scroll-container::-webkit-scrollbar {
-    display: none;
-}
-
-.scroll-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}.image-container {
+.image-container {
     display: inline-block;
 }
 .btn {
@@ -98,7 +151,7 @@ body {
     border: 1px solid var(--s-color);
     overflow: hidden;
     color: inherit;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 .btn:hover{
     color: var(--f-color);
@@ -115,17 +168,74 @@ body {
     position: absolute;
     top: var(--y);
     left: var(--x);
-    transform: translate(-50%, -50%);
+
     width: 0px;
     height: 0px;
     border-radius: 50%;
     
     background-color: var(--s-color);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .btn:hover::after {
-    width: 35rem;
-    height: 35rem;
-    
+    width: 50rem;
+    height: 50rem;
 }
+
+@keyframes fade-int {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from { opacity:1;}   
+    to { opacity:0;}
+}
+@keyframes slide-to-left {
+    from {
+       transform: translateX(-4rem);
+    }
+    to {
+        transform: translateX(0rem);
+    }
+}
+@keyframes slide-to-right {
+    from {
+        transform: translateX(0rem);
+    }
+
+    to {
+        transform: translateX(-4rem);
+    }
+}
+
+
+@media (max-width: 1280px) {
+    html {
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
+    .btn {
+        padding: 5px 3px;
+    }   
+    h2{
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+

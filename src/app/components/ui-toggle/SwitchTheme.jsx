@@ -3,15 +3,17 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
-const colors = [
-    '#F4ECE8', '#E89CA4', '#3357FF',
-    '#FF33A1', '#A133FF', '#33FFF5',
-    '#F5FF33', '#FF5733', '#57FF33'
-];
-const textColors = [
-    '#141414', '#FC2602', '#33FFF5',
-    '#F5FF33', '#FF5733', '#57FF33',
-    '#F4ECE8', '#33FF57', '#3357FF'
+// Combine colors and textColors into a single array of objects
+const colorPairs = [
+    { bgColor: '#F4ECE8', textColor: '#141414' },
+    { bgColor: '#FFCED3', textColor: '#FC2602' },
+    { bgColor: '#3357FF', textColor: '#33FFF5' },
+    { bgColor: '#D66EAE', textColor: '#1E249F' },
+    { bgColor: '#E0D9D3', textColor: '#4A549C' },
+    { bgColor: '#FEFDF9', textColor: '#198A56' },
+    { bgColor: '#BCFF00', textColor: '#0D0405' },
+    { bgColor: '#FE011A', textColor: '#0D0405' },
+    { bgColor: '#1FCC70', textColor: '#0D0405' }
 ];
 
 const SwitchTheme = () => {
@@ -21,7 +23,7 @@ const SwitchTheme = () => {
     useEffect(() => {
         setMounted(true);
 
-        // Récupérer les couleurs sauvegardées
+        // Retrieve saved colors from localStorage
         const savedBgColor = localStorage.getItem('bgColor');
         const savedTextColor = localStorage.getItem('textColor');
 
@@ -33,37 +35,39 @@ const SwitchTheme = () => {
 
     if (!mounted) return null;
 
-    const handleClick = (color, textColor) => {
-        // Sauvegarder les couleurs dans le localStorage
-        localStorage.setItem('bgColor', color);
+    const handleClick = (bgColor, textColor) => {
+        localStorage.setItem('bgColor', bgColor);
         localStorage.setItem('textColor', textColor);
 
-        // Appliquer les couleurs
-        document.documentElement.style.setProperty('--f-color', color);
+        document.documentElement.style.setProperty('--f-color', bgColor);
         document.documentElement.style.setProperty('--s-color', textColor);
-        setTheme('custom'); // Set a custom theme to trigger the change
+        setTheme('custom');
     };
 
     return (
-        <div className='flex justify-center align-middle'>
-            <div className='grid gap-4 grid-cols-3 gap-2'>
-                {colors.map((color, index) => (
+        <div className='flex justify-center items-center'>
+            <div className='grid gap-4 grid-cols-3'>
+                {colorPairs.map(({ bgColor, textColor }, index) => (
                     <div
                         key={index}
-                        onClick={() => handleClick(color, textColors[index])}
+                        onClick={() => handleClick(bgColor, textColor)}
                         style={{
-                            width: '1rem',
-                            height: '1rem',
+                            width: '1.7rem',
+                            height: '1.7rem',
                             borderRadius: '50%',
-                            backgroundColor: color,
+                            background: `linear-gradient(0deg, ${bgColor}, ${textColor})`,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                             cursor: 'pointer'
                         }}
-                    ></div>
+                    >
+
+                    </div>
                 ))}
             </div>
         </div>
     );
 };
-
 
 export default SwitchTheme;

@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import TransitionLink from '../layout/TransitionLink'; // Adjust the import path as needed
 
-const Button = ({ href, children, className = '', isRounded = true }) => { // Ajout de la propriété isRounded avec valeur par défaut true
+const Button = ({ href, children, className = '', isRounded = true }) => {
     const btnRef = useRef(null);
 
     const handleMouseMove = (e) => {
@@ -18,13 +18,15 @@ const Button = ({ href, children, className = '', isRounded = true }) => { // Aj
     const borderRadiusClass = isRounded ? 'rounded-full' : 'rounded-none';
 
     return (
-        <Link href={href} passHref
+        <TransitionLink
+            href={href}
+            passHref
             ref={btnRef}
             onMouseMove={handleMouseMove}
-            className={`btn ${className} ${borderRadiusClass}`}>
-
+            className={`btn ${className} ${borderRadiusClass}`}
+        >
             <span>{children}</span>
-        </Link>
+        </TransitionLink>
     );
 };
 

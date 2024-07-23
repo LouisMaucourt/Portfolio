@@ -6,15 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "email": "email dev --dir src/emails"
   },
   "dependencies": {
+    "next/font": "^14.2.5",
+    "@react-email/components": "0.0.20",
+    "@react-three/drei": "^9.108.1",
+    "@react-three/fiber": "^8.16.8",
+    "@studio-freight/lenis": "^1.0.42",
+    "@supabase/supabase-js": "^2.44.2",
     "framer-motion": "^11.2.12",
     "next": "14.2.4",
     "next-theme": "^0.1.5",
     "next-themes": "^0.3.0",
+    "next-view-transitions": "^0.2.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-email": "2.1.5",
+    "resend": "^3.4.0",
+    "tailwind-scrollbar": "^3.1.0",
+    "use-view-transitions": "^1.0.16"
   },
   "devDependencies": {
     "@types/node": "20.14.9",
