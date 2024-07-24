@@ -57,8 +57,8 @@ h2{
     font-family: var(--font-grotesk);
 }
 :root {
-    --f-color: #F4ECE8;
-    --s-color: #141414;
+    --f-color: #FEFDF9;
+    --s-color: #198A56;
     --font-hitman: 'hitman', sans-serif;
     --font-flower: 'flower', sans-serif;
     --font-comic: 'Comic', sans-serif;

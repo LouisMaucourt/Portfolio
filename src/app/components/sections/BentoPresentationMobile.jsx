@@ -10,7 +10,7 @@ const BentoPresentationMobile = () => {
                 <Cube></Cube>
                 <div className='p-4'>
                     <h1 className='text-4xl font-bold'>Louis Maucourt<br />Développeur Front-End</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 4
+                    <p>Après trois ans dans le digital, je suis en mastère de développement web. Passionné par le "creative code", je trouve dans le code le point de convergence de tout mon travail, où l'art et la technologie se rencontrent. Autodidacte, j'explore des animations interactives et des expériences utilisateur innovantes. Cette approche m'a inculqué discipline et curiosité, me permettant d'aborder chaque projet avec l'envie d'apprendre et de créer des solutions uniques.
                     </p>
                 </div>
             </div>

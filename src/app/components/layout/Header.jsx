@@ -25,10 +25,10 @@ export default function Header() {
                             Projets
                         </Button>
                     </li>
-                    <li className={`w-full lg:hidden`}>
+                    <li className={`w-full`}>
                         <ChangeMood />
                     </li>
-                    <li className={`w-full ${isActive('/#contact') ? 'var(--s-color) var(--f-color)' : ''}`}>
+                    <li className={`w-full lg:hidden${isActive('/#contact') ? 'var(--s-color) var(--f-color)' : ''}`}>
                         <Button href="/#contact" isRounded={false}>
                             Contact
                         </Button>

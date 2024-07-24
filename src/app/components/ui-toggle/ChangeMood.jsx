@@ -82,7 +82,7 @@ const ChangeMood = () => {
         <div className="flex flex-col justify-center items-center">
             <button
                 onClick={randomize}
-                className='btn w-full'
+                className='btn w-full lg:py-3'
             ><span className='uppercase'>Changer de Mood</span>
 
             </button>

@@ -23,7 +23,7 @@ const Button = ({ href, children, className = '', isRounded = true }) => {
             passHref
             ref={btnRef}
             onMouseMove={handleMouseMove}
-            className={`btn ${className} ${borderRadiusClass}`}
+            className={`btn lg:py-3 ${className} ${borderRadiusClass}`}
         >
             <span>{children}</span>
         </TransitionLink>

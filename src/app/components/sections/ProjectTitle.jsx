@@ -57,7 +57,7 @@ const ProjectTitle = () => {
                     >
                         <TransitionLink
                             href={`/projets/${formatTitleForUrl(project.title)}`}
-                            className="text-9xl text-link hover:opacity-75 transition-all"
+                            className="text-9xl lg:text-8xl text-link hover:opacity-75 transition-all"
                         >
                             {project.title}
                         </TransitionLink>

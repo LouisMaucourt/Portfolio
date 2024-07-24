@@ -20,7 +20,7 @@ const HomePage = () => {
       src: "/images/projects/logo-soum.webp",
       alt: "Logo Sooum",
       title: "Soum",
-      attribute: 'Logo pour un maître artisan en linogravure'
+      attribute: 'Logo pour un artisan en linogravure'
 
     },
     {
